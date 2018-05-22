@@ -5,6 +5,30 @@
     <title>Title</title>
 </head>
 <body>
+    <script type="text/javascript">
+        // Object.prototype
 
+        if(typeof Object.create !== 'function'){
+            Object.create = function(truc){
+                var F = function() {};
+                F. prototype = truc;
+                return new F();
+            }
+        }
+
+        var machin = Object.create("bordel");
+
+
+
+        // Notion de Réflexion
+
+        typeof vol.toStrint(); // 'Function'
+        typeof vol.constructor(); // 'Function'
+
+        vol.hasOwnProperty('couleur') // True
+        vol.hasOwnProperty('constructor') // False
+
+        delete toto.couleur;
+    </script>
 </body>
 </html>
