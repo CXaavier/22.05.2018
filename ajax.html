@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    var totoalplage = null;
+
+    if(window.XMLHttpRequest || window.ActiveXObject){
+        if(window.ActiveXObject){
+            try{
+                totoalplage = new ActiveXObject("Msxml2.XMLHTTP");
+            }catch(e){
+                totoalplage = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }else{
+            totoalplage = new XMLHttpRequest();
+        }
+        return totoalplage;
+    }else{
+        //alert("Sa fonctionne pas.");
+        return false;
+    }
+</script>
