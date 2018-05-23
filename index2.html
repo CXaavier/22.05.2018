@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AJAX</title>
-    <script type="text/javascript" src="ajax.html"></script>
-</head>
+<script src="https://code.jquery.com/jquery-3.0.0-alpha1.js"></script><html>
 <body>
+<h1>Vanilla JS AJAX Form with File Upload Example</h1>
+<h2>Note: The file submitted will be publicly accessible. Cat GIFs only!</h2>
 
-<script>
-    let toto = null;
-    if(toto = getXMLHTTPRequest()){
-
-    }else{
-
-    }
-</script>
+<form id="ajax-upload" action="http://posttestserver.com/post.php?dir=example" method="post" enctype="multipart/form-data">
+    File: <input type="file" name="submitted">
+    <input type="hidden" name="someParam" value="someValue"/>
+    <button type="submit">Send via AJAX!</button>
+</form>
+<div>
+    Copy/Paste the URL below to see the uploaded file
+    <div id="result"></div>
+</div>
 </body>
 </html>

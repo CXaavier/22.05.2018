@@ -1,19 +1,18 @@
 <script type="text/javascript">
-    var totoalplage = null;
+    document.addEventListener("DOMContentLoaded", function(){
+        document.getElementById('ajax-upload').addEventListener("submit", function(e){
+            e.preventDefault()
+            var form = e.target
+            var data = new FormData(form)
 
-    if(window.XMLHttpRequest || window.ActiveXObject){
-        if(window.ActiveXObject){
-            try{
-                totoalplage = new ActiveXObject("Msxml2.XMLHTTP");
-            }catch(e){
-                totoalplage = new ActiveXObject("Microsoft.XMLHTTP");
+            var request = new XMLHttpRequest()
+
+            request.onreadystatechange = function(){
+                document.getElementById("result").innerText = request.responseText
             }
-        }else{
-            totoalplage = new XMLHttpRequest();
-        }
-        return totoalplage;
-    }else{
-        //alert("Sa fonctionne pas.");
-        return false;
-    }
+
+            request.open(form.method, form.action)
+            request.send(data)
+        })
+    })
 </script>
