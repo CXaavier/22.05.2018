@@ -2,36 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Form on the beach - And AJAX far, far away...</title>
+    <script type="text/javascript" src="./script.js"></script>
 </head>
 <body>
-    <form method="GET">
-        <label>Montant d'emprunt</label>
-        <input type="number" id="ntr" onchange="format(this.value)" placeholder="Le montant de votre emprunt">
-
-        <label>Durée de l'emprunt</label>
-        <input type="text" id="ctr" placeholder="La durée de votre emprunt">
-
-        <label>Taux d'intérêt</label>
-        <input type="text" id="vtr" placeholder="Le taux de votre emprunt">
-    </form>
-
-    <script type="text/javascript">
-        Number.prototype.toMonetaryString=function(){
-            var n=this.toFixed(2).replace(/\./,',');
-            return n.replace(/(\d)(?=(\d{3})+\b)/g,'$1 ');
-        }
-        function format(v){
-            v=parseFloat(v.replace(/\s+/g,'').replace(/,/,'.'));
-            document.getElementById('ctr').value='';
-            if (isNaN(v) || v<=0) {alert('Entrée non valide !\nVeuillez n’entrer que des caractères numériques\n(chiffres, éventuels espaces séparateurs et virgules ou points)');return}
-
-            document.getElementById('vtr').value='';
-            if (isNaN(v) || v<=0) {alert('Entrée non valide !\nVeuillez n’entrer que des caractères numériques\n(chiffres, éventuels espaces séparateurs et virgules ou points)');return}
-            document.getElementById('ntr').value=v.toMonetaryString();
-            document.getElementById('ctr').value=(v*0.78).toMonetaryString();
-            document.getElementById('vtr').value=(v*1.09).toMonetaryString();
-        }
-    </script>
+<form action="traitement.php" method="post">
+    <div>
+        <label for="nom">Nom : </label>
+        <input type="text" id="nom" name="nom" />
+    </div>
+    <div>
+        <label for="prenom">Nom : </label>
+        <input type="text" id="prenom" name="prenom" />
+    </div>
+    <div>
+        <label for="mail">Nom : </label>
+        <input type="text" id="mail" name="mail" />
+    </div>
+    <div>
+        <label for="mdp">Nom : </label>
+        <input type="password" id="mdp" name="mdp" />
+    </div>
+    <h1 ondblclick="validerForm()">Envoyer !!!</h1>
+</form>
 </body>
 </html>
